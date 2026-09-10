@@ -11,3 +11,13 @@ A machine learning project designed to forecast whether it will rain tomorrow in
 ## 📊 Dataset Overview
 The dataset contains ~140,000 daily weather observations collected across Australian weather stations from 2007 to 2017.
 Primary target variable: `RainTomorrow` (Binary: Yes / No).
+
+## 🏆 Initial Algorithm Benchmark
+| Model | Test Accuracy | ROC-AUC | Notes |
+| :--- | :---: | :---: | :--- |
+| Logistic Regression | 78.78% | 0.8610 | Baseline linear model |
+| Random Forest | 84.72% | 0.8847 | Strong ensemble baseline |
+| XGBoost | 85.37% | 0.8862 | High precision gradient boosting |
+| LightGBM | 85.11% | 0.8800 | Fast training performance |
+
+*CatBoost hyperparameter tuning and domain feature engineering in progress.*
