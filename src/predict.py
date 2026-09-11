@@ -123,7 +123,27 @@ class RainfallPredictor:
             "summary": f"[{badge}] {label} ({rain_pct}% probability at threshold {threshold})"
         }
 
-    # Express prediction interface to be added in next iteration
+    def predict_express(
+        self,
+        humidity_3pm: float,
+        pressure_3pm: float,
+        rainfall: float,
+        threshold: float = DEFAULT_DECISION_THRESHOLD
+    ) -> Dict[str, Any]:
+        """Convenience method for Express 3-feature rapid forecasting.
+        
+        Args:
+            humidity_3pm: Afternoon relative humidity (%)
+            pressure_3pm: Afternoon barometric pressure (hPa)
+            rainfall: Today's precipitation in mm
+            threshold: Probability decision threshold (default 0.40)
+        """
+        inputs = {
+            "Humidity3pm": humidity_3pm,
+            "Pressure3pm": pressure_3pm,
+            "Rainfall": rainfall,
+        }
+        return self.predict(inputs, threshold=threshold)
 
     def predict_batch(
         self,
